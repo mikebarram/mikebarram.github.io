@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Mike Barram]]></title><description><![CDATA[Figuring IT out]]></description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 09 Dec 2016 16:24:06 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How to restart Ghost]]></title><description><![CDATA[<p>If you're running Ghost locally and have rebooted your computer since you last used it, you'll need to restart Ghost to get it working again at <a href="http://127.0.0.1:2368/">http://127.0.0.1:2368/</a>. <br>
+To do this under Windows, open the Node.js command prompt and then type <br>
+npm start</p>
+
+<p>If you</p>]]></description><link>http://localhost:2368/how-to-restart-ghost/</link><guid isPermaLink="false">ae72355c-8645-4dde-871a-86a658fa6332</guid><dc:creator><![CDATA[Mike Barram]]></dc:creator><pubDate>Fri, 09 Dec 2016 13:38:09 GMT</pubDate><content:encoded><![CDATA[<p>If you're running Ghost locally and have rebooted your computer since you last used it, you'll need to restart Ghost to get it working again at <a href="http://127.0.0.1:2368/">http://127.0.0.1:2368/</a>. <br>
+To do this under Windows, open the Node.js command prompt and then type <br>
+npm start</p>
+
+<p>If you want it Ghost to run automatically, restarting on reboot, look here <a href="http://docs.ghost.org/pl/installation/deploy/">http://docs.ghost.org/pl/installation/deploy/</a></p>]]></content:encoded></item><item><title><![CDATA[How this blog is set up]]></title><description><![CDATA[<p>The hosting, as you can see from the URL, is on github.io - <a href="https://pages.github.com/">how to publish a site under github.io</a></p>
+
+<p>So, following that guide, I managed to create a simple home page. As github.io doesn't allow server side code for templating a site, I wanted a CMS</p>]]></description><link>http://localhost:2368/how-this-blog-is-set-up/</link><guid isPermaLink="false">97a077c6-7e2a-42d6-8a2f-11faa6a2caac</guid><dc:creator><![CDATA[Mike Barram]]></dc:creator><pubDate>Fri, 02 Dec 2016 16:49:07 GMT</pubDate><content:encoded><![CDATA[<p>The hosting, as you can see from the URL, is on github.io - <a href="https://pages.github.com/">how to publish a site under github.io</a></p>
+
+<p>So, following that guide, I managed to create a simple home page. As github.io doesn't allow server side code for templating a site, I wanted a CMS / blogging tool that would help me manage content, wrap it in a template and produce a static site that could be synced to GitHub. By looking at what other people used, I picked <a href="https://ghost.org/">ghost</a> but not the hosted version. Instead I picked the <a href="http://support.ghost.org/installing-ghost-windows/">version you download and install on Windows</a>. This involved installing Node.js, Python and other stuff along the way along the way. To get all of the software set up on Windows, ready for installing ghost, just follow this guide <br>
+<a href="http://leftofnull.com/2014/02/07/using-github-pages-with-ghost-and-buster-on-windows-part-1/index.html">http://leftofnull.com/2014/02/07/using-github-pages-with-ghost-and-buster-on-windows-part-1/index.html</a> <br>
+The only change to make is to get Pip from here <a href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a></p>
+
+<p>Finally, there's the matter of syncing the content from Ghost to GitHub... <br>
+The tricky bit is that Ghost doesn't publish the content to a set of static files. Instead, you need a tool that will spider the site and save the contents to the folder that is acting as your local GitHib repository. <br>
+The standard tool in this situation, seems to be the python script buster <br>
+<a href="http://leftofnull.com/2014/02/24/using-github-pages-with-ghost-and-buster-on-windows-part-2/">http://leftofnull.com/2014/02/24/using-github-pages-with-ghost-and-buster-on-windows-part-2/</a></p>
+
+<p>In my case, I created a GitHub repository called mikebarram.github.io <br>
+Then I created a branch called gh-pages <br>
+And a local folder to publish to called C:\ghost</p>
+
+<p>Then, in Git Bash the following gets a local copy of the repo, checks out the gh-pages branch, creates a static copy of the ghost site with buster and checks it back in to GitHub <br>
+cd /c/ghost <br>
+git clone <a href="https://github.com/mikebarram/mikebarram.github.io.git">https://github.com/mikebarram/mikebarram.github.io.git</a> <br>
+cd mikebarram.github.io <br>
+git checkout -b gh-pages <br>
+buster setup --gh-repo=<a href="https://github.com/mikebarram/mikebarram.github.io/">https://github.com/mikebarram/mikebarram.github.io/</a> <br>
+buster generate --domain=<a href="http://127.0.0.1:2368">http://127.0.0.1:2368</a> --dir=/c/ghost/mikebarram.github.io/ <br>
+buster deploy --dir=/c/ghost/mikebarram.github.io/</p>]]></content:encoded></item></channel></rss>
