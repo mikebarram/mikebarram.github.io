@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Mike Barram]]></title><description><![CDATA[Figuring IT out]]></description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 09 Dec 2016 16:24:06 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How to restart Ghost]]></title><description><![CDATA[<p>If you're running Ghost locally and have rebooted your computer since you last used it, you'll need to restart Ghost to get it working again at <a href="http://127.0.0.1:2368/">http://127.0.0.1:2368/</a>. <br>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Mike Barram]]></title><description><![CDATA[Figuring IT out]]></description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 09 Dec 2016 17:40:34 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How to restart Ghost]]></title><description><![CDATA[<p>If you're running Ghost locally and have rebooted your computer since you last used it, you'll need to restart Ghost to get it working again at <a href="http://127.0.0.1:2368/">http://127.0.0.1:2368/</a>. <br>
 To do this under Windows, open the Node.js command prompt and then type <br>
 npm start</p>
 
@@ -30,4 +30,15 @@ cd mikebarram.github.io <br>
 git checkout -b gh-pages <br>
 buster setup --gh-repo=<a href="https://github.com/mikebarram/mikebarram.github.io/">https://github.com/mikebarram/mikebarram.github.io/</a> <br>
 buster generate --domain=<a href="http://127.0.0.1:2368">http://127.0.0.1:2368</a> --dir=/c/ghost/mikebarram.github.io/ <br>
-buster deploy --dir=/c/ghost/mikebarram.github.io/</p>]]></content:encoded></item></channel></rss>
+buster deploy --dir=/c/ghost/mikebarram.github.io/</p>
+
+<p>Might have to use these too <br>
+git merge gh-pages --commit</p>
+
+<p>git checkout gh-pages</p>
+
+<p>The remaining problem is that the site contains some links, such as: <br>
+src="//code.jquery.com/jquery-1.12.0.min.js" <br>
+and <br>
+href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" <br>
+When the site is spidered, the URLs are prepended with http (because the local site is http) but when published to github.io, they need to be https. So, the default.hbs file in /ghost/content/themes/casper/ needs to be updated.</p>]]></content:encoded></item></channel></rss>

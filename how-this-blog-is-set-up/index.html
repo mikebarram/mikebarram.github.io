@@ -12,8 +12,8 @@
 
     <link rel="shortcut icon" href="../favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="http://localhost:2368/assets/css/screen.css?v=f41b78d15a" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:2368/assets/css/screen.css?v=54d265a25c" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
 
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -25,7 +25,7 @@
     <meta property="og:description" content="The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS" />
     <meta property="og:url" content="http://localhost:2368/how-this-blog-is-set-up/" />
     <meta property="article:published_time" content="2016-12-02T16:49:07.000Z" />
-    <meta property="article:modified_time" content="2016-12-09T15:34:45.000Z" />
+    <meta property="article:modified_time" content="2016-12-09T17:40:08.000Z" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="How this blog is set up" />
     <meta name="twitter:description" content="The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS" />
@@ -51,7 +51,7 @@
     "headline": "How this blog is set up",
     "url": "http://localhost:2368/how-this-blog-is-set-up/",
     "datePublished": "2016-12-02T16:49:07.000Z",
-    "dateModified": "2016-12-09T15:34:45.000Z",
+    "dateModified": "2016-12-09T17:40:08.000Z",
     "description": "The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -124,6 +124,17 @@ git checkout -b gh-pages <br />
 buster setup --gh-repo=<a href="https://github.com/mikebarram/mikebarram.github.io/">https://github.com/mikebarram/mikebarram.github.io/</a> <br />
 buster generate --domain=<a href="http://127.0.0.1:2368">http://127.0.0.1:2368</a> --dir=/c/ghost/mikebarram.github.io/ <br />
 buster deploy --dir=/c/ghost/mikebarram.github.io/</p>
+
+<p>Might have to use these too <br />
+git merge gh-pages --commit</p>
+
+<p>git checkout gh-pages</p>
+
+<p>The remaining problem is that the site contains some links, such as: <br />
+src="//code.jquery.com/jquery-1.12.0.min.js" <br />
+and <br />
+href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" <br />
+When the site is spidered, the URLs are prepended with http (because the local site is http) but when published to github.io, they need to be https. So, the default.hbs file in /ghost/content/themes/casper/ needs to be updated.</p>
         </section>
 
         <footer class="post-footer">
@@ -181,10 +192,10 @@ buster deploy --dir=/c/ghost/mikebarram.github.io/</p>
 
     </div>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     
-    <script type="text/javascript" src="http://localhost:2368/assets/js/jquery.fitvids.js?v=f41b78d15a"></script>
-    <script type="text/javascript" src="http://localhost:2368/assets/js/index.js?v=f41b78d15a"></script>
+    <script type="text/javascript" src="http://localhost:2368/assets/js/jquery.fitvids.js?v=54d265a25c"></script>
+    <script type="text/javascript" src="http://localhost:2368/assets/js/index.js?v=54d265a25c"></script>
 
 </body>
 </html>
