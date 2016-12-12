@@ -20,7 +20,7 @@
     <meta property="og:description" content="The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS" />
     <meta property="og:url" content="http://localhost:2368/how-this-blog-is-set-up/" />
     <meta property="article:published_time" content="2016-12-02T16:49:07.000Z" />
-    <meta property="article:modified_time" content="2016-12-09T17:40:08.000Z" />
+    <meta property="article:modified_time" content="2016-12-12T14:12:42.000Z" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="How this blog is set up" />
     <meta name="twitter:description" content="The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS" />
@@ -46,7 +46,7 @@
     "headline": "How this blog is set up",
     "url": "http://localhost:2368/how-this-blog-is-set-up/",
     "datePublished": "2016-12-02T16:49:07.000Z",
-    "dateModified": "2016-12-09T17:40:08.000Z",
+    "dateModified": "2016-12-12T14:12:42.000Z",
     "description": "The hosting, as you can see from the URL, is on github.io - how to publish a site under github.io So, following that guide, I managed to create a simple home page. As github.io doesn&#x27;t allow server side code for templating a site, I wanted a CMS",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -861,16 +861,16 @@ The standard tool in this situation, seems to be the python script buster <br></
 
 <p>In my case, I created a GitHub repository called mikebarram.github.io <br></br>
 Then I created a branch called gh-pages <br></br>
-And a local folder to publish to called C:\ghost</p>
+And a local folder to publish to called C:\GitHub</p>
 
 <p>Then, in Git Bash the following gets a local copy of the repo, checks out the gh-pages branch, creates a static copy of the ghost site with buster and checks it back in to GitHub <br></br>
-cd /c/ghost <br></br>
+cd /c/GitHub <br></br>
 git clone <a href="https://github.com/mikebarram/mikebarram.github.io.git">https://github.com/mikebarram/mikebarram.github.io.git</a> <br></br>
 cd mikebarram.github.io <br></br>
 git checkout -b gh-pages <br></br>
 buster setup --gh-repo=<a href="https://github.com/mikebarram/mikebarram.github.io/">https://github.com/mikebarram/mikebarram.github.io/</a> <br></br>
-buster generate --domain=<a href="http://127.0.0.1:2368">http://127.0.0.1:2368</a> --dir=/c/ghost/mikebarram.github.io/ <br></br>
-buster deploy --dir=/c/ghost/mikebarram.github.io/</p>
+buster generate --domain=<a href="../../index.html">http://localhost:2368</a> --dir=/c/GitHub/mikebarram.github.io/ <br></br>
+buster deploy --dir=/c/GitHub/mikebarram.github.io/</p>
 
 <p>Might have to use these too <br></br>
 git merge gh-pages --commit</p>
